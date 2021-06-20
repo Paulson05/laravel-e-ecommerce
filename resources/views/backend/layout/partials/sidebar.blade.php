@@ -1,34 +1,6 @@
 <div id="left-sidebar" class="sidebar">
     <div class="">
-        <div class="user-account">
-            <img src="{{url('backend/assets/images/user.png')}}" class="rounded-circle user-photo" alt="User Profile Picture">
-            <div class="dropdown">
-                <span>Welcome,</span>
-                <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Alizee Thomas</strong></a>
-                <ul class="dropdown-menu dropdown-menu-right account">
-                    <li><a href="page-profile2.html"><i class="icon-user"></i>My Profile</a></li>
-                    <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
-                    <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
-                    <li class="divider"></li>
-                    <li><a href="page-login.html"><i class="icon-power"></i>Logout</a></li>
-                </ul>
-            </div>
-            <hr>
-            <ul class="row list-unstyled">
-                <li class="col-4">
-                    <small>Sales</small>
-                    <h6>456</h6>
-                </li>
-                <li class="col-4">
-                    <small>Order</small>
-                    <h6>1350</h6>
-                </li>
-                <li class="col-4">
-                    <small>Revenue</small>
-                    <h6>$2.13B</h6>
-                </li>
-            </ul>
-        </div>
+
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
             <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu">Menu</a></li>
@@ -40,26 +12,30 @@
         <!-- Tab panes -->
         <div class="tab-content p-l-0 p-r-0">
             <div class="tab-pane active" id="menu">
-                <nav id="left-sidebar-nav" class="sidebar-nav">
+                <nav id="left-sidebar-nav" class="sidebar-nav" >
                     <ul id="main-menu" class="metismenu">
                         <li class="active">
                             <a href="#Dashboard" class="has-arrow"><i class="icon-home"></i> <span>Dashboard</span></a>
 
                         </li>
                         <li>
-                            <a href="{{route('banner.index')}}" class="has-arrow"><i class="icon-grid"></i> <span>Banner</span></a>
+                            <a href="{{route('banner.index')}}" class="has-arrow"><i class="icon-grid"></i> <span>Banner Management</span></a>
 
                         </li>
                         <li>
-                            <a href="{{route('product.index')}}" class="has-arrow"><i class="icon-folder"></i> <span>Product</span></a>
+                            <a href="{{route('product.index')}}" class="has-arrow"><i class="icon-folder"></i> <span>Product Managament</span></a>
 
                         </li>
                         <li>
-                            <a href="{{route('banner.index')}}" class="has-arrow"><i class="icon-globe"></i> <span>Brands</span></a>
+                            <a href="{{route('banner.index')}}" class="has-arrow"><i class="icon-globe"></i> <span>Brands Management</span></a>
 
                         </li>
                         <li>
-                            <a href="{{route('category.index')}}" class="has-arrow"><i class="icon-globe"></i> <span>Category</span></a>
+                            <a href="{{route('category.index')}}" class="has-arrow"><i class="icon-diamond"></i> <span>Category Management</span></a>
+
+                        </li>
+                        <li>
+                            <a href="{{route('category.index')}}" class="has-arrow"><i class="icon-basket"></i> <span>Cart Management</span></a>
 
                         </li>
 
