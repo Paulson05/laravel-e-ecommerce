@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BannerController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class BannerController extends Controller
      */
     public function index()
     {
-          return view('backend.banner.index');
+        return view('backend.brand.index');
     }
 
     /**
