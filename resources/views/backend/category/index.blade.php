@@ -226,64 +226,81 @@
     <div class="modal fade" id="addcontact" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
+
                 <div class="modal-header">
-                    <h6 class="title" id="defaultModalLabel">Add Category</h6>
+                    <h6 class="title" id="defaultModalLabel">Add category</h6>
                 </div>
-                <div class="modal-body">
-                    <div class="row clearfix">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="First Name">
+                <form id="basic-form" class="form-control" method="post" action="{{route('category.store')}}">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="row clearfix">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <input type="text" name="title" placeholder="title" class="form-control @error('title'){{"is-invalid"}}@enderror" value = "{{Request::old('title') ?: ''}}">
+                                    @error('title')
+                                    <span class="form-text text-danger">{{$errors->first('title')}}</span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Last Name">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <input type="text" name="slug"  placeholder="slug" class="form-control @error('slug'){{"is-invalid"}}@enderror" value = "{{Request::old('slug') ?: ''}}">
+                                    @error('slug')
+                                    <span class="form-text text-danger">{{$errors->first('slug')}}</span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <input type="number" class="form-control" placeholder="Phone Number">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>parent-id</label>
+                                    <input type="checkbox"><span>parent id</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Enter Address">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <select id="single-selection" name="status" class="col-12 form-control multiselect multiselect-custom">
+                                        <option value="cheese">----------select parent category----------</option>
+
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                                <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea name="Description" class="form-control col-12" rows="5" cols="30" required></textarea>
+                                </div>
                             </div>
-                            <hr>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Facebook">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="file" name="photo" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                                </div>
+                                <hr>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Twitter">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <select id="single-selection" name="status" class="col-12 form-control multiselect multiselect-custom">
+                                        <option value="cheese">----------select status----------</option>
+                                        <option value="active">active</option>
+                                        <option value="inactive">inactive</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Linkedin">
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="instagram">
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Summary</label>
+                                    <textarea name="summary" class="form-control col-12" rows="5" cols="30" required></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Add</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
-                </div>
+                    <div class="float-left">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>

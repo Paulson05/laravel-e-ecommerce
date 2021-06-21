@@ -23,26 +23,26 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('/postlogin', [UserController::class, 'check'])->name('user.check');
 Auth::routes();
 Route::get('/admin',[AdminController::class, 'index'])->name('admin.dashboard');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::resource('users', UserController::class)->only('index', 'create', 'store', 'show', 'edit', 'destroy');
 Route::resource('banner', BannerController::class)->only('index', 'create', 'store', 'show', 'edit', 'destroy');
 Route::resource('brand', BrandController::class)->only('index', 'create', 'store', 'show', 'edit', 'destroy');
 Route::resource('product', ProductController::class)->only('index', 'create', 'store', 'show', 'edit', 'destroy');
 Route::resource('category', CategoryController::class)->only('index', 'create', 'store', 'show', 'edit', 'destroy');
 
-Route::prefix('user')->group(function (){
-
-    Route::middleware(['guest' ])->group(function (){
-        Route::get('/login', [UserController::class, 'login'])->name('user.login');
-        Route::get('/register', [UserController::class, 'register'])->name('user.register');
-        Route::post('/create', [UserController::class, 'create'])->name('user.create');
-
-
-    });
-    Route::middleware(['auth:web' ])->group(function (){
-        Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
-
-    });
-});
+//Route::prefix('user')->group(function (){
+//
+//    Route::middleware(['guest' ])->group(function (){
+//        Route::get('/login', [UserController::class, 'login'])->name('user.login');
+//        Route::get('/register', [UserController::class, 'register'])->name('user.register');
+//        Route::post('/create', [UserController::class, 'create'])->name('user.create');
+//
+//
+//    });
+//    Route::middleware(['auth:web' ])->group(function (){
+//        Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
+//
+//    });
+//});

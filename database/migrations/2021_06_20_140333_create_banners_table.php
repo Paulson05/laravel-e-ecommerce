@@ -16,10 +16,12 @@ class CreateBannersTable extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->mediumText('description');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->enum('status',['active', 'inactive'])->default('inactive');
+            $table->enum('conditions',['brand', 'promo'])->default('promo');
+
             $table->timestamps();
         });
     }

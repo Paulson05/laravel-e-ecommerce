@@ -15,7 +15,7 @@
                 <nav id="left-sidebar-nav" class="sidebar-nav" >
                     <ul id="main-menu" class="metismenu">
                         <li class="active">
-                            <a href="#Dashboard" class="has-arrow"><i class="icon-home"></i> <span>Dashboard</span></a>
+                            <a href="{{route('admin.dashboard')}}" class="has-arrow"><i class="icon-home"></i> <span>Dashboard</span></a>
 
                         </li>
                         <li>
@@ -28,6 +28,10 @@
                         </li>
                         <li>
                             <a href="{{route('banner.index')}}" class="has-arrow"><i class="icon-globe"></i> <span>Brands Management</span></a>
+
+                        </li>
+                        <li>
+                            <a href="{{route('users.index')}}" class="has-arrow"><i class="icon-globe"></i> <span>User Management</span></a>
 
                         </li>
                         <li>

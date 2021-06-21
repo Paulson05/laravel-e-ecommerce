@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Banner extends Model
 {
     protected $guarded  = [];
-    protected $table = 'banner';
+    protected $table = 'banners';
     use HasFactory;
 
 }

@@ -2,13 +2,6 @@
 
 @section('title', '| post')
 @section('content')
-    {{--    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>--}}
-
-    <script>
-        tinymce.init({
-            selector: '#mytextarea'
-        });
-    </script>
 
     <div class="pt-5">
         <div class="container pt-5">
@@ -17,7 +10,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2>User List</h2>
+                            <h2>Product List</h2>
                             <ul class="header-dropdown">
                                 <li><a href="javascript:void(0);" data-toggle="modal" data-target="#addcontact"><i class="icon-plus"></i></a></li>
                             </ul>
@@ -226,64 +219,184 @@
     <div class="modal fade" id="addcontact" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
+
                 <div class="modal-header">
-                    <h6 class="title" id="defaultModalLabel">Add Details</h6>
+                    <h6 class="title" id="defaultModalLabel">Add Product</h6>
                 </div>
-                <div class="modal-body">
-                    <div class="row clearfix">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="First Name">
+                <form id="basic-form" class="form-control" method="post" action="{{route('banner.store')}}">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="row clearfix">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <input type="text" name="title" placeholder="title" class="form-control @error('title'){{"is-invalid"}}@enderror" value = "{{Request::old('title') ?: ''}}">
+                                    @error('title')
+                                    <span class="form-text text-danger">{{$errors->first('title')}}</span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Last Name">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <input type="text" name="slug"  placeholder="slug" class="form-control @error('slug'){{"is-invalid"}}@enderror" value = "{{Request::old('slug') ?: ''}}">
+                                    @error('slug')
+                                    <span class="form-text text-danger">{{$errors->first('slug')}}</span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <input type="number" class="form-control" placeholder="Phone Number">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <input type="text" name="title" placeholder="stock" class="form-control @error('title'){{"is-invalid"}}@enderror" value = "{{Request::old('title') ?: ''}}">
+                                    @error('title')
+                                    <span class="form-text text-danger">{{$errors->first('title')}}</span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Enter Address">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <input type="text" name="slug"  placeholder="price" class="form-control @error('slug'){{"is-invalid"}}@enderror" value = "{{Request::old('slug') ?: ''}}">
+                                    @error('slug')
+                                    <span class="form-text text-danger">{{$errors->first('slug')}}</span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                                <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <input type="text" name="title" placeholder="offer-price" class="form-control @error('title'){{"is-invalid"}}@enderror" value = "{{Request::old('title') ?: ''}}">
+                                    @error('title')
+                                    <span class="form-text text-danger">{{$errors->first('title')}}</span>
+                                    @enderror
+                                </div>
                             </div>
-                            <hr>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Facebook">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <input type="text" name="discount"  placeholder="discount" class="form-control @error('slug'){{"is-invalid"}}@enderror" value = "{{Request::old('slug') ?: ''}}">
+                                    @error('slug')
+                                    <span class="form-text text-danger">{{$errors->first('slug')}}</span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Twitter">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <select id="single-selection" name="status" class="col-12 form-control multiselect multiselect-custom">
+                                        <option value="cheese">----------select status----------</option>
+                                        <option value="active">active</option>
+                                        <option value="inactive">inactive</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Linkedin">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <input type="text" name="title" placeholder="title" class="form-control @error('title'){{"is-invalid"}}@enderror" value = "{{Request::old('title') ?: ''}}">
+                                    @error('title')
+                                    <span class="form-text text-danger">{{$errors->first('title')}}</span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="instagram">
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <input type="text" name="size"  placeholder="size" class="form-control @error('slug'){{"is-invalid"}}@enderror" value = "{{Request::old('slug') ?: ''}}">
+                                    @error('slug')
+                                    <span class="form-text text-danger">{{$errors->first('slug')}}</span>
+                                    @enderror
+                                </div>
                             </div>
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <select id="single-selection" name="status" class="col-12 form-control multiselect multiselect-custom">
+                                        <option value="cheese">----------select condition----------</option>
+                                        <option value="active">new</option>
+                                        <option value="inactive">winter</option>
+                                        <option value="inactive">popular</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>description</label>
+                                    <textarea name="description" class="form-control col-12" rows="5" cols="30" required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <select id="single-selection" name="status" class="col-12 form-control multiselect multiselect-custom">
+                                        <option value="cheese">----------select condition----------</option>
+                                        <option value="active">new</option>
+                                        <option value="inactive">winter</option>
+                                        <option value="inactive">popular</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <select id="single-selection" name="status" class="col-12 form-control multiselect multiselect-custom">
+                                        <option value="cheese">----------select condition----------</option>
+                                        <option value="active">new</option>
+                                        <option value="inactive">winter</option>
+                                        <option value="inactive">popular</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <select id="single-selection" name="status" class="col-12 form-control multiselect multiselect-custom">
+                                        <option value="cheese">----------select condition----------</option>
+                                        <option value="active">new</option>
+                                        <option value="inactive">winter</option>
+                                        <option value="inactive">popular</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <select id="single-selection" name="status" class="col-12 form-control multiselect multiselect-custom">
+                                        <option value="cheese">----------select condition----------</option>
+                                        <option value="active">new</option>
+                                        <option value="inactive">winter</option>
+                                        <option value="inactive">popular</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <select id="single-selection" name="status" class="col-12 form-control multiselect multiselect-custom">
+                                        <option value="cheese">----------select condition----------</option>
+                                        <option value="active">new</option>
+                                        <option value="inactive">winter</option>
+                                        <option value="inactive">popular</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Summary</label>
+                                    <textarea name="summary" class="form-control col-12" rows="5" cols="30" required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="file" name="photo" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                                </div>
+                                <hr>
+                            </div>
+
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Add</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>
