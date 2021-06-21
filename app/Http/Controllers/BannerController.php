@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use Illuminate\Http\Request;
 
 class BannerController extends Controller
@@ -13,7 +14,11 @@ class BannerController extends Controller
      */
     public function index()
     {
-          return view('backend.banner.index');
+        $banners   = Banner::all();
+
+        return view('backend.banner.index')->with([
+            'banners' => $banners
+        ]);
     }
 
     /**

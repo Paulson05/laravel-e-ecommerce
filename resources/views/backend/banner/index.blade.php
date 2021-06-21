@@ -21,194 +21,52 @@
                              <thead>
                              <tr>
                                  <th>
-                                     <label class="fancy-checkbox">
-                                         <input class="select-all" type="checkbox" name="checkbox">
-                                         <span></span>
-                                     </label>
+                                    S/N
                                  </th>
-                                 <th>Name</th>
-                                 <th>Phone</th>
-                                 <th>Address</th>
+                                 <th>Title</th>
+                                 <th>Slug</th>
+                                 <th>photo</th>
+                                 <th>Description</th>
+                                 <th>Status</th>
+                                 <th>Condition</th>
                                  <th>Action</th>
                              </tr>
                              </thead>
                              <tbody>
+                             @foreach($banners as $banner)
                              <tr>
-                                 <td style="width: 50px;">
-                                     <label class="fancy-checkbox">
-                                         <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                         <span></span>
-                                     </label>
+                                 <td>
+                                    {{$banner->id}}
                                  </td>
                                  <td>
-                                     <img src="../assets/images/xs/avatar1.jpg" class="rounded-circle avatar" alt="">
-                                     <p class="c_name">John Smith <span class="badge badge-default m-l-10 hidden-sm-down">Family</span></p>
+                                     {{$banner->title}}
                                  </td>
                                  <td>
-                                     <span class="phone"><i class="zmdi zmdi-phone m-r-10"></i>264-625-2583</span>
+       <p>{{Substr(strip_tags($banner->slug), 0, 10)}} {{strlen(strip_tags($banner->slug)) > 10 ? "......" : ""}}</p>
+
                                  </td>
                                  <td>
-                                     <address><i class="zmdi zmdi-pin"></i>123 6th St. Melbourne, FL 32904</address>
+
+                                     <img  src ="/upload/images/{{$banner->photo}}" height= "70px;" width = "80px;">
+
+                                 </td>
+                                 <td>
+
+                                     <p>{{Substr(strip_tags($banner->description), 0, 10)}} {{strlen(strip_tags($banner->description)) > 10 ? "......" : ""}}</p>
+                                 </td>
+                                 <td>
+                                     {{$banner->status}}
+
+                                 </td>
+                                 <td>
+                                     {{$banner->conditions}}
                                  </td>
                                  <td>
                                      <button type="button" class="btn btn-info" title="Edit"><i class="fa fa-edit"></i></button>
                                      <button type="button" data-type="confirm" class="btn btn-danger js-sweetalert" title="Delete"><i class="fa fa-trash-o"></i></button>
                                  </td>
                              </tr>
-                             <tr>
-                                 <td>
-                                     <label class="fancy-checkbox">
-                                         <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                         <span></span>
-                                     </label>
-                                 </td>
-                                 <td>
-                                     <img src="../assets/images/xs/avatar3.jpg" class="rounded-circle avatar" alt="">
-                                     <p class="c_name">Hossein Shams <span class="badge badge-info m-l-10 hidden-sm-down">Google</span></p>
-                                 </td>
-                                 <td>
-                                     <span class="phone"><i class="zmdi zmdi-phone m-r-10"></i>264-625-5689</span>
-                                 </td>
-                                 <td>
-                                     <address><i class="zmdi zmdi-pin"></i>44 Shirley Ave. West Chicago, IL 60185</address>
-                                 </td>
-                                 <td>
-                                     <button type="button" class="btn btn-info" title="Edit"><i class="fa fa-edit"></i></button>
-                                     <button type="button" data-type="confirm" class="btn btn-danger js-sweetalert" title="Delete"><i class="fa fa-trash-o"></i></button>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>
-                                     <label class="fancy-checkbox">
-                                         <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                         <span></span>
-                                     </label>
-                                 </td>
-                                 <td>
-                                     <img src="../assets/images/xs/avatar4.jpg" class="rounded-circle avatar" alt="">
-                                     <p class="c_name">Maryam Amiri</p>
-                                 </td>
-                                 <td>
-                                     <span class="phone"><i class="zmdi zmdi-phone m-r-10"></i>264-625-9513</span>
-                                 </td>
-                                 <td>
-                                     <address><i class="zmdi zmdi-pin"></i>123 6th St. Melbourne, FL 32904</address>
-                                 </td>
-                                 <td>
-                                     <button type="button" class="btn btn-info" title="Edit"><i class="fa fa-edit"></i></button>
-                                     <button type="button" data-type="confirm" class="btn btn-danger js-sweetalert" title="Delete"><i class="fa fa-trash-o"></i></button>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>
-                                     <label class="fancy-checkbox">
-                                         <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                         <span></span>
-                                     </label>
-                                 </td>
-                                 <td>
-                                     <img src="../assets/images/xs/avatar6.jpg" class="rounded-circle avatar" alt="">
-                                     <p class="c_name">Tim Hank<span class="badge badge-default m-l-10 hidden-sm-down">Family</span></p>
-                                 </td>
-                                 <td>
-                                     <span class="phone"><i class="zmdi zmdi-phone m-r-10"></i>264-625-1212</span>
-                                 </td>
-                                 <td>
-                                     <address><i class="zmdi zmdi-pin"></i>70 Bowman St. South Windsor, CT 06074</address>
-                                 </td>
-                                 <td>
-                                     <button type="button" class="btn btn-info" title="Edit"><i class="fa fa-edit"></i></button>
-                                     <button type="button" data-type="confirm" class="btn btn-danger js-sweetalert" title="Delete"><i class="fa fa-trash-o"></i></button>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>
-                                     <label class="fancy-checkbox">
-                                         <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                         <span></span>
-                                     </label>
-                                 </td>
-                                 <td>
-                                     <img src="../assets/images/xs/avatar7.jpg" class="rounded-circle avatar" alt="">
-                                     <p class="c_name">Fidel Tonn<span class="badge badge-default m-l-10 hidden-sm-down">Family</span></p>
-                                 </td>
-                                 <td>
-                                     <span class="phone"><i class="zmdi zmdi-phone m-r-10"></i>264-625-2323</span>
-                                 </td>
-                                 <td>
-                                     <address><i class="zmdi zmdi-pin"></i>514 S. Magnolia St. Orlando, FL 32806</address>
-                                 </td>
-                                 <td>
-                                     <button type="button" class="btn btn-info" title="Edit"><i class="fa fa-edit"></i></button>
-                                     <button type="button" data-type="confirm" class="btn btn-danger js-sweetalert" title="Delete"><i class="fa fa-trash-o"></i></button>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>
-                                     <label class="fancy-checkbox">
-                                         <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                         <span></span>
-                                     </label>
-                                 </td>
-                                 <td>
-                                     <img src="../assets/images/xs/avatar8.jpg" class="rounded-circle avatar" alt="">
-                                     <p class="c_name">Gary Camara<span class="badge badge-success m-l-10 hidden-sm-down">Work</span></p>
-                                 </td>
-                                 <td>
-                                     <span class="phone"><i class="zmdi zmdi-phone m-r-10"></i>264-625-1005</span>
-                                 </td>
-                                 <td>
-                                     <address><i class="zmdi zmdi-pin"></i>44 Shirley Ave. West Chicago, IL 60185</address>
-                                 </td>
-                                 <td>
-                                     <button type="button" class="btn btn-info" title="Edit"><i class="fa fa-edit"></i></button>
-                                     <button type="button" data-type="confirm" class="btn btn-danger js-sweetalert" title="Delete"><i class="fa fa-trash-o"></i></button>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>
-                                     <label class="fancy-checkbox">
-                                         <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                         <span></span>
-                                     </label>
-                                 </td>
-                                 <td>
-                                     <img src="../assets/images/xs/avatar9.jpg" class="rounded-circle avatar" alt="">
-                                     <p class="c_name">Frank Camly</p>
-                                 </td>
-                                 <td>
-                                     <span class="phone"><i class="zmdi zmdi-phone m-r-10"></i>264-625-9999</span>
-                                 </td>
-                                 <td>
-                                     <address><i class="zmdi zmdi-pin"></i>123 6th St. Melbourne, FL 32904</address>
-                                 </td>
-                                 <td>
-                                     <button type="button" class="btn btn-info" title="Edit"><i class="fa fa-edit"></i></button>
-                                     <button type="button" data-type="confirm" class="btn btn-danger js-sweetalert" title="Delete"><i class="fa fa-trash-o"></i></button>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>
-                                     <label class="fancy-checkbox">
-                                         <input class="checkbox-tick" type="checkbox" name="checkbox">
-                                         <span></span>
-                                     </label>
-                                 </td>
-                                 <td>
-                                     <img src="../assets/images/xs/avatar10.jpg" class="rounded-circle avatar" alt="">
-                                     <p class="c_name">Tim Hank<span class="badge badge-default m-l-10 hidden-sm-down">Family</span></p>
-                                 </td>
-                                 <td>
-                                     <span class="phone"><i class="zmdi zmdi-phone m-r-10"></i>264-625-1212</span>
-                                 </td>
-                                 <td>
-                                     <address><i class="zmdi zmdi-pin"></i>70 Bowman St. South Windsor, CT 06074</address>
-                                 </td>
-                                 <td>
-                                     <button type="button" class="btn btn-info" title="Edit"><i class="fa fa-edit"></i></button>
-                                     <button type="button" data-type="confirm" class="btn btn-danger js-sweetalert" title="Delete"><i class="fa fa-trash-o"></i></button>
-                                 </td>
-                             </tr>
+                             @endforeach
                              </tbody>
                          </table>
                      </div>
