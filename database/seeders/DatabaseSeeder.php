@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Brand;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +16,9 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call(UsersTableSeeder::class);
-         \App\Models\User::factory(10)->create();
+        Brand::factory(10)->create();
+
+//         \App\Models\User::factory(10)->create();
+
     }
 }

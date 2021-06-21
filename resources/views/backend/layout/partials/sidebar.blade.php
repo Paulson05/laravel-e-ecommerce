@@ -27,7 +27,7 @@
 
                         </li>
                         <li>
-                            <a href="{{route('banner.index')}}" class="has-arrow"><i class="icon-globe"></i> <span>Brands Management</span></a>
+                            <a href="{{route('brand.index')}}" class="has-arrow"><i class="icon-globe"></i> <span>Brands Management</span></a>
 
                         </li>
                         <li>
@@ -39,7 +39,7 @@
 
                         </li>
                         <li>
-                            <a href="{{route('category.index')}}" class="has-arrow"><i class="icon-basket"></i> <span>Cart Management</span></a>
+                            <a href="" class="has-arrow"><i class="icon-basket"></i> <span>Cart Management</span></a>
 
                         </li>
 
